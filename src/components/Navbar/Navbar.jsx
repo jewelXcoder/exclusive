@@ -24,7 +24,7 @@ const Navbar = () => {
         </ul>
       </div>
       <div className='w-[35%] '>
-<div className='flex items-center gap-x-6'>
+<div className='flex justify-end items-center gap-x-6'>
           <div className='w-[273px] bg-[#F5F5F5] rounded relative'>
           <input className='w-full outline-0  py-[10px] pl-[20px] pr-[45px] placeholder:font-primary placeholder:text-[12px] placeholder:text-black/50' type="text" placeholder='What are you looking for?' />
           <CiSearch className='absolute top-[10px] right-[14px]' size={24}/>
