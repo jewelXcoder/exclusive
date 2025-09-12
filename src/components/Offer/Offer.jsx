@@ -5,7 +5,7 @@ import RenderedTime from './RenderedTime';
 
 const Offer = () => {
   return (
-    <div className='pt-[122px] pb-[161px]'>
+    <div className='pt-[122px]'>
       <Container>
         <div className='bg-[url(./assets/offer.png)] py-[69px] bg-cover bg-no-repeat bg-center'>
           <div className='ml-[56px]'>
