@@ -5,6 +5,8 @@ import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
+import SectionHead from '../HeadingSection/SectionHead';
+import SectionSubHead from '../HeadingSection/SectionSubHead';
 
 
 
@@ -44,14 +46,12 @@ const Categories = () => {
     <div className='pt-[153px]'>
       <Container>
         <div>
-          <div className='flex items-center'>
-            <div className='w-[20px] h-[40px] rounded bg-primary'>
-            </div>
-            <p className='font-primary font-semibold text-primary ml-4'>Categories</p>
-          </div>
-          <div className='flex items-center mt-5'>
-            <div className='font-secondary font-semibold text-[36px]'>Browse By Category</div>
-          </div>
+      <SectionHead>
+        Categories
+      </SectionHead>
+    <SectionSubHead>
+      Browse By Category
+    </SectionSubHead>
           <div className=' mt-[60px]'>
 
             <Slider {...settings}>

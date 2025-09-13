@@ -4,19 +4,21 @@ import product from '../../assets/product.png'
 import { FaStar } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
+import SectionHead from '../HeadingSection/SectionHead';
+import SectionSubHead from '../HeadingSection/SectionSubHead';
 
 const BestSellingProducts = () => {
   return (
     <div className=' pt-[122px]'>
       <Container>
         <div>
-          <div className='flex items-center'>
-            <div className='w-[20px] h-[40px] rounded bg-primary'>
-            </div>
-            <p className='font-primary font-semibold text-primary ml-4'>This Month</p>
-          </div>
-          <div className='flex items-center justify-between mt-5'>
-            <div className='font-secondary font-semibold text-[36px]'>Best Selling Products</div>
+          <SectionHead>
+            This Month
+          </SectionHead>
+          <div className='flex items-center justify-between'>
+            <SectionSubHead>
+              Best Selling Products
+            </SectionSubHead>
             <div>
               <button className='py-4 px-12 bg-primary text-white font-primary font-medium rounded'>View All</button>
             </div>
