@@ -8,6 +8,8 @@ import Offer from '../components/Offer/Offer'
 import ExploreOurProducts from '../components/ExploreOurProducts/ExploreOurProducts'
 import NewArrival from '../components/NewArrival/NewArrival'
 import Service from '../components/Service/Service'
+import Footer from '../components/Footer/Footer'
+import CopyRight from '../components/Footer/CopyRight'
 
 const Home = () => {
   return (
@@ -21,6 +23,8 @@ const Home = () => {
      <ExploreOurProducts/>
      <NewArrival/>
      <Service/>
+     <Footer/>
+     <CopyRight/>
     </>
   )
 }
