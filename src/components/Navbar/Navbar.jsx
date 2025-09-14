@@ -5,6 +5,7 @@ import { CiSearch } from "react-icons/ci";
 import { CiHeart } from "react-icons/ci";
 import { FaOpencart } from "react-icons/fa6";
 import { GoPerson } from "react-icons/go";
+import { Link } from 'react-router';
 
 const Navbar = () => {
   return (
@@ -16,11 +17,11 @@ const Navbar = () => {
       </div>
       <div className='w-[45%]'>
         <ul className='flex items-center gap-x-[48px]'>
-          <li className='font-primary'><a href="">Home</a></li>
-          <li className='font-primary'><a href="">Product</a></li>
-          <li className='font-primary'><a href="">Contact</a></li>
-          <li className='font-primary'><a href="">About</a></li>
-          <li className='font-primary'><a href="">Sign Up</a></li>
+          <li className='font-primary'><Link to="/">Home</Link></li>
+          <li className='font-primary'><Link to="/product">Product</Link></li>
+          <li className='font-primary'><Link to="">Contact</Link></li>
+          <li className='font-primary'><Link to="">About</Link></li>
+          <li className='font-primary'><Link to="">Sign Up</Link></li>
         </ul>
       </div>
       <div className='w-[35%] '>

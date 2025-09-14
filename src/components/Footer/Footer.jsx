@@ -9,6 +9,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { LuTwitter } from "react-icons/lu";
 import { FaInstagram } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa6";
+import CopyRight from './CopyRight';
 
 const Footer = () => {
   return (
@@ -73,6 +74,7 @@ const Footer = () => {
           </div>
         </div>
       </Container>
+      <CopyRight/>
     </div>
   )
 }
