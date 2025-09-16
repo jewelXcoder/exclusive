@@ -126,7 +126,7 @@ const ExploreOurProducts = () => {
             {
               productData.slice(0, visible).map((item) => (
                 <div>
-                  <div className='relative py-[52px] px-[65px] inline-block rounded bg-[#F5F5F5]'>
+                  <div className='group relative w-[270px] py-[52px] px-[65px] inline-block rounded bg-[#F5F5F5]'>
                     <img src={item.img} alt="" />
                     <div className='absolute top-3 right-3'>
                       <div className='flex justify-center items-center w-[34px] h-[34px] rounded-full bg-[#ffffff]'>
@@ -135,6 +135,9 @@ const ExploreOurProducts = () => {
                       <div className='flex justify-center items-center w-[34px] h-[34px] rounded-full bg-[#ffffff] mt-2'>
                         <IoEyeOutline size={20} />
                       </div>
+                    </div>
+                    <div>
+                      <p className='hidden group-hover:block transition-all duration-100 absolute bottom-0 left-0 w-full py-2  bg-[#000000] text-white text-center'>Add To Cart</p>
                     </div>
                   </div>
                   <div>
