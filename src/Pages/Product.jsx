@@ -5,7 +5,7 @@ import ProductRightPart from '../components/ProductPage/ProductRightPart'
 
 const Product = () => {
   return (
-    <div className='py-30'>
+    <div className='pt-[80px] pb-[104px]'>
     <Container>
      <div className='flex'>
        <ProductLeftPart/>

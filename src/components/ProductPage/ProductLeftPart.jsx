@@ -34,7 +34,7 @@ const ProductLeftPart = () => {
   ]
 
   return (
-    <div className='w-[25%]'>
+    <div className='w-[25%] mt-[32px]'>
       <div className='mb-[15px]'>
         <h3 className='font-primary font-bold text-[20px]'>Shop by Category</h3>
       </div>

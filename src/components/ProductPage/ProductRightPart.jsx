@@ -1,22 +1,19 @@
-
 import React, { useEffect, useState } from 'react'
+import product from '../../assets/product.png'
 import { FaStar } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
 import ProductRating from './ProductRating';
 
-
 const ProductRightPart = () => {
 
-  const [productData, setProductData] = useState([])
+ const [productData, setProductData] = useState([])
 
-  useEffect(() => {
+  useEffect(()=>{
     fetch("https://dummyjson.com/products")
-      .then((res) => res.json())
-      .then((data) => setProductData(data.products))
-  }, [])
-
-  // console.log(productData)
+    .then((res)=> res.json())
+    .then((data)=> setProductData(data.products))
+  },[])
 
   // const productData = [
   //   {
@@ -26,6 +23,7 @@ const ProductRightPart = () => {
   //   },
   // ]
 
+  // console.log(productData)
 
   return (
     <div className='w-[75%]'>
@@ -46,7 +44,7 @@ const ProductRightPart = () => {
                 </div>
               </div>
               <div>
-                <p className='font-primary text-[11px] font-medium'>{product.title}</p>
+                <p className='font-primary font-medium text-[11px]'>{product.title}</p>
                 <p className='font-primary font-medium text-primary mt-2'>{product.price} <del className='text-black/50 ml-3'>$360</del></p>
                 <div className='flex items-center mt-2'>
                   {/* <div className='flex items-center text-xl text-[#FFAD33]'>
@@ -57,8 +55,11 @@ const ProductRightPart = () => {
                     <FaStar size={20} />
                   </div>
                   <p className='font-primary font-semibold text-black/50 ml-2'>({product.reviews.length})</p> */}
-                  <ProductRating rating={product.rating} />
-                  <p className='text-black/50 ml-2'>({product.reviews.length})</p>
+
+
+                    <ProductRating rating={product.rating}/>  
+                    <p className='text-black/50 ml-2'>({product.reviews.length})</p>
+
                 </div>
               </div>
             </div>
