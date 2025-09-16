@@ -7,13 +7,16 @@ import ProductRating from './ProductRating';
 
 const ProductRightPart = () => {
 
- const [productData, setProductData] = useState([])
+  const [currentPage, setCurrentPage] = useState(1)
+  const [productData, setProductData] = useState([])
 
-  useEffect(()=>{
+  const productPerPage = 6;
+
+  useEffect(() => {
     fetch("https://dummyjson.com/products")
-    .then((res)=> res.json())
-    .then((data)=> setProductData(data.products))
-  },[])
+      .then((res) => res.json())
+      .then((data) => setProductData(data.products))
+  }, [])
 
   // const productData = [
   //   {
@@ -25,14 +28,25 @@ const ProductRightPart = () => {
 
   // console.log(productData)
 
+  // console.log(productData.length)
+
+  const totalProducts = productData.length
+  const totalPages = Math.ceil(totalProducts / productPerPage)
+  const indexOfLastProduct = currentPage * productPerPage
+  const indexOfFirstProduct = indexOfLastProduct - productPerPage
+
+  const currentProduct = productData.slice(indexOfFirstProduct, indexOfLastProduct)
+
+  const data = [...Array(totalPages).keys()].map((index) => index + 1)
+
   return (
     <div className='w-[75%]'>
       <div className='flex flex-wrap gap-x-[30px] gap-y-[60px]'>
 
         {
-          productData.map((product) => (
+          currentProduct.map((product) => (
             <div>
-              <div className='relative w-[270px] py-[52px] px-[65px] inline-block rounded bg-[#F5F5F5]'>
+              <div className='relative group w-[270px] py-[52px] px-[65px] inline-block rounded bg-[#F5F5F5]'>
                 <img src={product.thumbnail} alt="" />
                 <div className='absolute top-3 right-3'>
                   <div className='flex justify-center items-center w-[34px] h-[34px] rounded-full bg-[#ffffff]'>
@@ -41,6 +55,9 @@ const ProductRightPart = () => {
                   <div className='flex justify-center items-center w-[34px] h-[34px] rounded-full bg-[#ffffff] mt-2'>
                     <IoEyeOutline size={20} />
                   </div>
+                </div>
+                <div>
+                  <p className='hidden group-hover:block transition-all duration-100 absolute bottom-0 left-0 w-full py-2  bg-[#000000] text-white text-center'>Add To Cart</p>
                 </div>
               </div>
               <div>
@@ -57,12 +74,22 @@ const ProductRightPart = () => {
                   <p className='font-primary font-semibold text-black/50 ml-2'>({product.reviews.length})</p> */}
 
 
-                    <ProductRating rating={product.rating}/>  
-                    <p className='text-black/50 ml-2'>({product.reviews.length})</p>
+                  <ProductRating rating={product.rating} />
+                  <p className='text-black/50 ml-2'>({product.reviews.length})</p>
 
                 </div>
               </div>
             </div>
+          ))
+        }
+      </div>
+      <div className='flex gap-x-3 mt-10'>
+        {
+          data.map((item) => (
+            <div
+              className={`cursor-pointer py-2 px-4 rounded ${currentPage === item ? "bg-black text-white" : "bg-gray-400 text-black"}`}
+              onClick={() => setCurrentPage(item)}
+            >{item}</div>
           ))
         }
       </div>
