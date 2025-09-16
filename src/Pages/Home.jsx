@@ -7,11 +7,9 @@ import ExploreOurProducts from '../components/ExploreOurProducts/ExploreOurProdu
 import NewArrival from '../components/NewArrival/NewArrival'
 import Service from '../components/Service/Service'
 
-
 const Home = () => {
   return (
     <>
-
      <Banner/>
      <Categories/>  
      <BestSellingProducts/>
@@ -19,7 +17,6 @@ const Home = () => {
      <ExploreOurProducts/>
      <NewArrival/>
      <Service/>
-
     </>
   )
 }
