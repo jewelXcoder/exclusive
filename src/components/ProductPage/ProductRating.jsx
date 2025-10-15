@@ -24,6 +24,7 @@ const ProductRating = ({rating}) => {
           <CiStar />
         ))
       }
+      
     </div>
   )
 }

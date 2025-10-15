@@ -4,6 +4,7 @@ import { FaStar } from "react-icons/fa";
 import { FaRegHeart } from "react-icons/fa";
 import { IoEyeOutline } from "react-icons/io5";
 import ProductRating from './ProductRating';
+import { Link } from 'react-router';
 
 const ProductRightPart = () => {
 
@@ -46,7 +47,7 @@ const ProductRightPart = () => {
         {
           currentProduct.map((product) => (
             <div>
-              <div className='relative group w-[270px] py-[52px] px-[65px] inline-block rounded bg-[#F5F5F5]'>
+              <Link to={`/product/${product.id}`} className='relative group w-[270px] py-[52px] px-[65px] inline-block rounded bg-[#F5F5F5]'>
                 <img src={product.thumbnail} alt="" />
                 <div className='absolute top-3 right-3'>
                   <div className='flex justify-center items-center w-[34px] h-[34px] rounded-full bg-[#ffffff]'>
@@ -59,7 +60,7 @@ const ProductRightPart = () => {
                 <div>
                   <p className='hidden group-hover:block transition-all duration-100 absolute bottom-0 left-0 w-full py-2  bg-[#000000] text-white text-center'>Add To Cart</p>
                 </div>
-              </div>
+              </Link>
               <div>
                 <p className='font-primary font-medium text-[11px]'>{product.title}</p>
                 <p className='font-primary font-medium text-primary mt-2'>{product.price} <del className='text-black/50 ml-3'>$360</del></p>

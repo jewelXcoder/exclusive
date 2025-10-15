@@ -32,7 +32,9 @@ const Navbar = () => {
         </div>
         <div className='flex gap-x-4'>
           <CiHeart size={24}/>
+         <Link to="/cart">
           <FaOpencart size={24}/>
+         </Link>
           <GoPerson size={24}/>
         </div>
 </div>
