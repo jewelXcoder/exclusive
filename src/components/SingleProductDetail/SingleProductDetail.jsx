@@ -12,10 +12,14 @@ import { CiHeart } from "react-icons/ci";
 import delivery from '../../assets/delivery.png'
 import returnback from '../../assets/returnback.png'
 import SingleProductRating from './SingleProductRating'
+import { useDispatch } from 'react-redux'
+import { cartTotal } from '../../slices/cartSlice'
 
 const SingleProductDetail = () => {
 
   const { id } = useParams()
+
+  const dispatch = useDispatch()
 
   const [productData, setProductData] = useState([])
   const [selectedImg, setSelectedImg] = useState()
@@ -34,9 +38,11 @@ const SingleProductDetail = () => {
     }
   }, [singleProduct])
 
-
-
-
+  const handleAddToCart = (product) =>{
+    // console.log("ok cool")
+    // console.log(product)
+    dispatch(cartTotal(product))
+  }
 
   return (
     <div className='py-30 '>
@@ -120,8 +126,8 @@ const SingleProductDetail = () => {
                   <p className='font-primary font-medium text-[20px] py-2 px-[34px]'>2</p>
                   <div className='py-[15px] px-[12px] bg-[#DB4444] text-white'><FaPlus /></div>
                 </div>
-                <div className='ml-4 font-primary font-medium rounded text-white py-[14px] px-[35px] bg-[#DB4444]'>
-                  Buy Now
+                <div onClick={()=>handleAddToCart(singleProduct)} className='ml-4 font-primary font-medium rounded text-white py-[14px] px-[35px] bg-[#DB4444]'>
+                  Add Cart
                 </div>
                 <div className='border border-black/50 ml-4 px-[12px] py-[13px] rounded '>
                   <CiHeart size={22} />

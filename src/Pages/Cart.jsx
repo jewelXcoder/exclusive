@@ -3,8 +3,20 @@ import Container from '../components/Layout/Container'
 import mainimg from '../assets/mainimg.png'
 import { FaChevronUp } from "react-icons/fa";
 import { FaChevronDown } from "react-icons/fa";
+import { useSelector } from 'react-redux';
+
 
 const Cart = () => {
+
+const  data = useSelector(state=> state.cartDetails.cartItems)
+
+ const totalPrice = data.reduce((prev, current)=>{
+    // console.log(prev)
+    // console.log(current.price)
+    return(prev + (current.price * current.cartQun))
+ },0)
+console.log(totalPrice)
+// console.log(data)
   return (
     <div className='py-50'>
       <Container>
@@ -15,26 +27,30 @@ const Cart = () => {
             <div className='w-[25%]'>Quantity</div>
             <div className='w-[25%] flex justify-end'>Subtotal</div>
           </div>
-          <div className='flex justify-between items-center py-6 px-[40px] rounded shadow-[0_1px_13px_rgba(0,0,0,0.1)] '>
+        {
+          data.map((product)=>(
+                      <div className='flex justify-between items-center py-6 px-[40px] rounded shadow-[0_1px_13px_rgba(0,0,0,0.1)] '>
             <div className='w-[25%]'>
               <div className='flex items-center'>
-                <img className='h-[39px]' src={mainimg} alt="" />
-                <p className='ml-5'>Gamepad</p>
+                <img className='h-[39px]' src={product.thumbnail} alt="" />
+                <p className='ml-5'>{product.title}</p>
               </div>
             </div>
-            <div className='w-[25%]'>$650</div>
+            <div className='w-[25%]'>${product.price}</div>
             <div className='w-[25%]'>
               <div className='flex items-center gap-x-4 px-3 py-[6px] rounded border border-black/50 h-[44px] w-[72px]'>
-                01
+                {product.cartQun}
                 <div>
                   <FaChevronUp />
                   <FaChevronDown />
                 </div>
               </div>
             </div>
-            <div className='w-[25%] flex justify-end'>$650</div>
+            <div className='w-[25%] flex justify-end'>${product.price * product.cartQun  }</div>
           </div>
-          <div className='flex justify-between items-center py-6 px-[40px] rounded shadow-[0_1px_13px_rgba(0,0,0,0.1)] '>
+          ))
+        }
+          {/* <div className='flex justify-between items-center py-6 px-[40px] rounded shadow-[0_1px_13px_rgba(0,0,0,0.1)] '>
             <div className='w-[25%]'>
               <div className='flex items-center'>
                 <img className='h-[39px]' src={mainimg} alt="" />
@@ -52,7 +68,7 @@ const Cart = () => {
               </div>
             </div>
             <div className='w-[25%] flex justify-end'>$650</div>
-          </div>
+          </div> */}
         </div>
         <div className='flex justify-between items-center mt-4'>
           <div className='px-12 py-4 border border-black/50 rounded-lg inline-block '>Return To Shop</div>
@@ -73,7 +89,7 @@ const Cart = () => {
                 <h3 className='font-medium font-primary text-[20px]'>Cart Total</h3>
                 <div className='mt-6 flex justify-between items-cente after:content-[""] relative after:absolute after:top-[30px] after:left-0 after:w-[422px] after:bg-black/50 after:h-[1px]'>
                   <p className='font-primary'>Subtotal:</p>
-                  <p className='font-primary'>$1750</p>
+                  <p className='font-primary'>${totalPrice}</p>
                 </div>
                 <div className='flex mt-6 justify-between items-cente after:content-[""] relative after:absolute after:top-[30px] after:left-0 after:w-[422px] after:bg-black/50 after:h-[1px]'>
                   <p className='font-primary'>Shipping:</p>
@@ -81,7 +97,7 @@ const Cart = () => {
                 </div>
                 <div className='flex mt-6 justify-between items-cente'>
                   <p className='font-primary'>Total:</p>
-                  <p className='font-primary'>$1750</p>
+                  <p className='font-primary'>${totalPrice}</p>
                 </div>
               </div>
               <div className=' text-center mt-4'>
